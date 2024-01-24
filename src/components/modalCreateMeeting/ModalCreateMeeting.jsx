@@ -2,6 +2,7 @@ import s from './ModalCreateMeeting.module.scss';
 import { Autocomplete, Button, Stack } from '@mui/joy';
 import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
 import { useState } from 'react';
 
 const objM = {
@@ -52,14 +53,20 @@ const ModalCreateMeeting = () => {
                         <div>
                             <DateTimePicker
                                 value={objMeeting.dateStart}
-                                onChange={(e) => setObjMeeting({ ...objMeeting, dateStart: e.$d })}
                                 views={['year', 'month', 'day']}
+                                defaultValue={dayjs()}
+                                minDate={dayjs()}
+                                onChange={(e) => setObjMeeting({ ...objMeeting, dateStart: e.$d })}
+                                sx={{ width: 300 }}
                             />
                             <Autocomplete
-                                value={objMeeting.timeStart}
-                                onChange={(e) => setObjMeeting({ ...objMeeting, timeStart: e.target.textContent}) }
                                 placeholder="Виберіть час початку"
                                 options={arrayHour}
+                                value={objMeeting.timeStart}
+                                onChange={(e, v) => {
+                                    const newValue = v ? e.target.textContent : null
+                                    setObjMeeting({ ...objMeeting, timeStart: newValue})
+                                } }
                                 sx={{ width: 300 }}
                             />
                         </div>
@@ -68,12 +75,18 @@ const ModalCreateMeeting = () => {
                                 value={objMeeting.dateEnd}
                                 onChange={(e) => setObjMeeting({ ...objMeeting, dateEnd: e.$d })}
                                 views={['year', 'month', 'day']}
+                                defaultValue={dayjs()}
+                                minDate={dayjs()}
+                                sx={{ width: 300 }}
                             />
                             <Autocomplete
                                 value={objMeeting.timeEnd}
-                                onChange={(e) => setObjMeeting({ ...objMeeting, timeEnd: e.target.textContent}) }
                                 placeholder="Виберіть час закінчення"
                                 options={arrayHour}
+                                onChange={(e, v) => {
+                                    const newValue = v ? e.target.textContent : null
+                                    setObjMeeting({ ...objMeeting, timeEnd: newValue})
+                                } }
                                 sx={{ width: 300 }}
                             />
                         </div>
@@ -86,6 +99,7 @@ const ModalCreateMeeting = () => {
                         options={participants}
                         getOptionLabel={(option) => option.title}
                         onChange={(e, v) => {setObjMeeting({...objMeeting, participants: v})}}
+                        sx={{ width: 300 }}
                     />
                     <Button type="submit">Submit</Button>
                 </Stack>
