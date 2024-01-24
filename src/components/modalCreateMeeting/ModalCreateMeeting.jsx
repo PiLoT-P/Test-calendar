@@ -32,11 +32,40 @@ for (let hour = 0; hour <= 23; hour++) {
     }
 }
 
+const createNormalDateTimeFormat = (date, time ) => {
+    const [hour, minute] = time.split(':');
+    date.setHours(hour, minute);
+    return date;
+}
+
+
+
 const ModalCreateMeeting = () => {
     const [objMeeting, setObjMeeting] = useState(objM)
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        for ( let key in objMeeting ) {
+            if (objMeeting[key] === null) {
+                console.log('error, заповніть всі поля');
+                return ;
+            }
+        }
+
+        const { dateStart, dateEnd, timeStart, timeEnd} = objMeeting;
+
+        const corectDateTimeStart = createNormalDateTimeFormat(dateStart, timeStart);
+        const corectDateTimeEnd = createNormalDateTimeFormat(dateEnd, timeEnd);
+
+        if(corectDateTimeStart < new Date()){
+            console.log('error date');
+            return
+        }else if(corectDateTimeEnd < corectDateTimeStart){
+            console.log('error date to');
+            return
+        }
+
         console.log(objMeeting);
         setObjMeeting(objM);
     }
