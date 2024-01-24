@@ -47,7 +47,7 @@ const ModalCreateMeeting = () => {
         e.preventDefault();
 
         for ( let key in objMeeting ) {
-            if (objMeeting[key] === null) {
+            if (objMeeting[key] === null || objMeeting[key].length === 0) {
                 console.log('error, заповніть всі поля');
                 return ;
             }
