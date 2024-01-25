@@ -17,14 +17,14 @@ const createStringFormatDate = (data) => {
 
 
 const EventInformation = ({eventData}) => {
-    const {title, time} = eventData;
+    const {title, time, color} = eventData;
     const {startDateString, endDateString, startTimeString, endTimeString} = createStringFormatDate(time);
     return (
         <>
             <section className={s.information_main_container}>
                 <div className={s.information_headers_container}>
                     <h2 className={s.title}>{`${title} "Організатор"`}</h2>
-                    <div className={s.color_block}><div className={s.color}></div></div>
+                    <div className={s.color_block}><div className={s.color} style={{backgroundColor: color}}></div></div>
                 </div>
                 <ul className={s.information_list}>
                     <li className={s.item}>
