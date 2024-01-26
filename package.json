@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://PiLoT-P.github.io/Test-calendar/",
   "dependencies": {
+    "@dnd-kit/core": "^6.1.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fontsource/inter": "^5.0.16",
