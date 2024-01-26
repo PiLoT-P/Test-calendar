@@ -60,6 +60,7 @@ const Calendar = ({setIsModalOpen, onChangesStartMeeting,  onChangesEndMeeting, 
                 select={handleSelectClick}
                 eventClick={handleEventClick}
                 eventDidMount={handleEventMount}
+                // style={{zIndex: 1}}
             />
         </div>
     );

@@ -21,7 +21,7 @@ const ModalBox = ({isModalOpen, setIsModalOpen, children, title}) => {
                 onClose={() => setIsModalOpen(false)}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
-                sx={{zIndex: 1}}
+                sx={{zIndex: 2}}
             >
                 <Box sx={{...stylesBox, bgcolor: bgColor,}} className={s.modal_container}>
                     {title ? <h2 className={s.title}>{title}</h2>: null}
