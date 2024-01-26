@@ -2,23 +2,18 @@ import s from './EventInformation.module.scss'
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import FaceIcon from '@mui/icons-material/Face';
 import { Button } from "@mui/joy";
+// import { useState } from 'react';
+import { createStringFormatDate } from 'functionJs/function';
 
-const createStringFormatDate = (data) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const startDateString = data.start.toLocaleDateString('uk-UA', options);
-    const endDateString = data.end.toLocaleDateString('uk-UA', options);
-    
-    const timeOptions = { hour: 'numeric', minute: 'numeric' };
-    const startTimeString = data.start.toLocaleTimeString('uk-UA', timeOptions);
-    const endTimeString = data.end.toLocaleTimeString('uk-UA', timeOptions);
-    
-    return {startDateString, endDateString, startTimeString, endTimeString};
-}
-
-
-const EventInformation = ({eventData}) => {
+const EventInformation = ({eventData, setIsReviewOpen, setIsEventOpen}) => {
     const {title, time, color} = eventData;
     const {startDateString, endDateString, startTimeString, endTimeString} = createStringFormatDate(time);
+
+    const handleClickReview = (e) =>{
+        setIsEventOpen(false);
+        setIsReviewOpen(true);
+    }
+
     return (
         <>
             <section className={s.information_main_container}>
@@ -48,7 +43,7 @@ const EventInformation = ({eventData}) => {
                         </p>
                     </li>
                 </ul>
-                <Button className={s.informatin_btn}>Переглянути подію</Button>
+                <Button className={s.informatin_btn} onClick={handleClickReview}>Переглянути подію</Button>
             </section>
         </>
     );

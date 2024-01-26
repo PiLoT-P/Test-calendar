@@ -1,0 +1,111 @@
+.review_container{
+    height: 80vh;
+    width: 70vw;
+
+    display: flex;
+    gap: 15px;
+}
+
+.review_block{
+    width: 100%;
+    // display: flex;
+}
+
+.main_block{
+    padding-top: 30px;
+    margin-bottom: 30px;
+
+    background-color: white;
+
+    .text_block{
+        padding: 20px 16px 30px 16px;
+
+        border-top: 2px solid #f3f3f3;
+        border-bottom: 2px solid #f3f3f3;
+
+        .calendar_block{
+            height: 150px;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+
+            border-bottom: 2px solid #f3f3f3;
+
+            background-color: #9addf0a5;
+        }
+
+        .occupied_block{
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+
+            border-bottom: 2px solid #f3f3f3;
+        }
+
+        .place_block{
+
+            .title{
+                margin-bottom: 12px;
+            }
+
+            .text{
+                padding: 8px;
+
+                background-color: #f6f7f9;
+            }
+        }
+
+    }
+    .button_block{
+        padding: 15px 0 15px 15px;
+
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.comments_block{
+    padding: 10px 0 30px 10px;
+    background-color: white;
+}
+
+.time_block{
+    min-width: 300px;
+    height: max-content;
+
+    background-color: white;
+
+    .date{
+        text-align: center;
+        padding: 12px;
+
+        background-color: #31c6f1;
+        color: white;
+    }
+    .information_block{
+        padding: 12px;
+
+        .title{
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+
+            border-bottom: 2px solid #f3f3f3;
+        }
+
+        .members_list{
+            display: flex;
+            gap: 5px;
+
+            margin-bottom: 5px;
+        }
+
+        .author{
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+
+            border-bottom: 2px solid #f3f3f3;
+        }
+
+        .information_list{
+            margin-bottom: 15px;
+        }
+    }
+}

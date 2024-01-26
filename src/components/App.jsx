@@ -9,13 +9,14 @@ import ReviewEvent from "./reviewEvent/ReviewEvent";
 export const App = () => {
   const [open, setOpen] = useState(false);
   const [openEventInformation, setOpenEventInformation] = useState(false);
+  const [openReview, setOpenReview] = useState(false);
   const [eventInformation, setEventInformation] = useState({});
   const [startMeeting, setStartMeeting] = useState(null);
   const [endMeeting, setEndMeeting] = useState(null);
 
   return (
     <>
-      {/* <Button onClick={() => setOpen(true)}>Створеня зустрічі</Button>
+      <Button onClick={() => setOpen(true)}>Створеня зустрічі</Button>
       <Calendar 
         setIsModalOpen={setOpen}
         onChangesStartMeeting={setStartMeeting}
@@ -26,6 +27,7 @@ export const App = () => {
       <ModalBox
         isModalOpen={open}
         setIsModalOpen={setOpen}
+        title="Створення зустрічі"
       >
         <ModalCreateMeeting
           dateTimeStart={startMeeting}
@@ -36,12 +38,21 @@ export const App = () => {
         isModalOpen={openEventInformation}
         setIsModalOpen={setOpenEventInformation}
       >
-        <EventInformation eventData={eventInformation}/>
-      </ModalBox> */}
+        <EventInformation 
+        eventData={eventInformation} 
+        setIsReviewOpen={setOpenReview}
+        setIsEventOpen={setOpenEventInformation}
+        />
+      </ModalBox>
+
       <ModalBox
-        isModalOpen={true}
+          isModalOpen={openReview}
+          setIsModalOpen={setOpenReview}
+          title={"Назва зустрічі"}
       >
-        <ReviewEvent/>
+          <ReviewEvent
+            eventData={eventInformation}
+          />
       </ModalBox>
     </>
   );
