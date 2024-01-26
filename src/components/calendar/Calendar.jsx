@@ -7,9 +7,9 @@ import ukLocale from '@fullcalendar/core/locales/uk';
 import s from './Calendar.module.scss';
 
 const events = [
-    { title: 'Meeting1', start: new Date(2024, 0, 25, 8, 30, 0 , 0), end: new Date(2024, 0, 25, 10, 0, 0 , 0), color: 'red' },
-    { title: 'Meeting2', start: new Date(2024, 0, 25, 8, 30, 0 , 0), end: new Date(2024, 0, 27, 10, 0, 0 , 0), color: '#007bff'},
-    { title: 'Meeting3', start: new Date(2024, 0, 25, 16, 30, 0 , 0), end: new Date(2024, 0, 26, 16, 30, 0, 0), color: '#28a745'},
+    { title: 'Meeting1', start: new Date(2024, 0, 25, 8, 30, 0 , 0), end: new Date(2024, 0, 25, 14, 0, 0 , 0), color: 'red' },
+    { title: 'Meeting2', start: new Date(2024, 0, 25, 10, 30, 0 , 0), end: new Date(2024, 0, 25, 17, 0, 0 , 0), color: '#007bff'},
+    { title: 'Meeting3', start: new Date(2024, 0, 25, 13, 30, 0 , 0), end: new Date(2024, 0, 25, 16, 30, 0, 0), color: '#28a745'},
     { title: 'Meeting4', start: new Date(2024, 1, 22, 1, 30, 0 , 0), end: new Date(2024, 1, 23, 13, 30, 0, 0), color: '#fd7e14'},
     { title: 'Meeting5', start: new Date(2024, 1, 22, 16, 30, 0 , 0), end: new Date(2024, 1, 23, 16, 30, 0, 0), color: '#dc3545'},
 ];

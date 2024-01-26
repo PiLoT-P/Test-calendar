@@ -4,6 +4,7 @@ import Calendar from "./calendar/Calendar";
 import { useState } from "react";
 import { Button } from "@mui/joy";
 import EventInformation from "./informationAboutEvent/EventInformation";
+import ReviewEvent from "./reviewEvent/ReviewEvent";
 
 export const App = () => {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,7 @@ export const App = () => {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Створеня зустрічі</Button>
+      {/* <Button onClick={() => setOpen(true)}>Створеня зустрічі</Button>
       <Calendar 
         setIsModalOpen={setOpen}
         onChangesStartMeeting={setStartMeeting}
@@ -36,6 +37,11 @@ export const App = () => {
         setIsModalOpen={setOpenEventInformation}
       >
         <EventInformation eventData={eventInformation}/>
+      </ModalBox> */}
+      <ModalBox
+        isModalOpen={true}
+      >
+        <ReviewEvent/>
       </ModalBox>
     </>
   );
