@@ -1,22 +1,19 @@
 @import '../../assets/styles/mixin';
 
 .navigation_container {
-    touch-action: none;
     width: 60vw;
-    padding: 15px;
 
-    position: absolute;
     left: 0;
+    position: fixed;
+    max-height: 92vh;
 
     transition: left 0.5s ease;
     background-color: rgba(190, 190, 190, 0.404);
-    max-height: 92%;
 
     @include tablet{
         position: relative;
-        max-height: 80%;
-
         width: 22vw;
+
         background-color: transparent;
     }
 
@@ -36,10 +33,21 @@
         background-color: rgba(0, 0, 0, 0.2);
         border-radius: 6px;
     }
+}
 
-    .list {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
+.navigation_list{
+    touch-action: none;
+    padding: 20px;
+
+    max-height: 100%;
+}
+
+.btn_more{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 10px;
+    background-color: transparent;
+    border: none;
 }

@@ -6,9 +6,7 @@ export const App = () => {
   return (
     <>
       {/* <ConferenceRoom/> */}
-      <section style={{backgroundColor: '#4f4fa5b5', height: '100%'}}>
         <HomePage/>
-      </section>
     </>
   );
 };

@@ -13,14 +13,19 @@ const HomePage = () => {
                     <MenuIcon fontSize="large" className={s.burger_btn}/>
                 </div>
             </header>
-            <section className={s.main_section}>
+            <main style={{ height: "92vh", display: "flex" }}>
                 <NavigationList
                     isOpen={openMenu}
                 />
-                <div>
-                    main text 
-                </div>
-            </section>
+                <section className={s.main_section}>
+                    <div >
+                        <h1>Main ====</h1> 
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <p>footer</p>
+            </footer>
         </>
     );
 }

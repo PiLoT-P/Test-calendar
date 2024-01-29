@@ -9,9 +9,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root{
-  height: 100vh;
+header {
+  background-color: red;
+}
+
+main {
+  background-color: green;
   overflow: hidden;
+}
+
+footer {
+  background-color: teal;
 }
 
 code {

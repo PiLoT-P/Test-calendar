@@ -50,14 +50,14 @@ const menuList = [
 ]
 
 const NavigationList = ({ isOpen }) => {
-    const [visibleItem] = useState(101);
+    const [visibleItem, setVisibleItem] = useState(10);
     const [move, setMove] = useState(false);
     const [menu] = useState(menuList);
 
-    const overflow = move ? { overflowY: "visible", overflowX: "visible" } : { overflowY: "auto", overflowX: "hidden"};
+    const overflow = move ? { overflowY: "visible", overflowX: "visible" } : { overflowY: "auto", overflowX: "hidden" };
+    // const height = visibleItem >= menuList.length ? "100%" : "96.2%";
 
-    const style = isOpen ? { left: '0px', ...overflow } : { position: 'fixed', left: '-300px', ...overflow }
-
+    const style = isOpen ? { left: '0px', ...overflow,} : { position: 'fixed', left: '-300px', ...overflow }
 
     const handleDragMove = (e) => {
         setMove(true);
@@ -70,22 +70,25 @@ const NavigationList = ({ isOpen }) => {
 
     return (
         <>
-            <DndContext
-                collisionDetection={closestCenter}
-                onDragMove={handleDragMove}
-                onDragEnd={handleDragEnd}
-            >
-                <div className={s.navigation_container} style={style} >
-                    <SortableContext
-                        items={menu}
-                        strategy={verticalListSortingStrategy}
-                    >
-                        {menu.slice(0, visibleItem).map((element, index) => (
-                            <SortableItem key={index} id={element} />
-                        ))}
-                    </SortableContext>
-                </div>
-            </DndContext>
+            <div className={s.navigation_container} style={style}>
+                <DndContext
+                    collisionDetection={closestCenter}
+                    onDragMove={handleDragMove}
+                    onDragEnd={handleDragEnd}
+                >
+                    <ul className={s.navigation_list}>
+                        <SortableContext
+                            items={menu}
+                            strategy={verticalListSortingStrategy}
+                        >
+                            {menu.slice(0, visibleItem).map((element, index) => (
+                                <SortableItem key={index} id={element} />
+                            ))}
+                        </SortableContext>
+                    </ul>
+                </DndContext>
+                {visibleItem >= menuList.length ? null : <button className={s.btn_more} onClick={() => setVisibleItem(menuList.length)}>More</button> }
+            </div>
         </>
     )
 }
