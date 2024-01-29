@@ -1,0 +1,33 @@
+@import '../../assets/styles/mixin';
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.navigation_btn {
+    padding: 6px 10px;
+    border-radius: 12px;
+    cursor: pointer !important;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    color: white;
+
+    &:hover {
+        background-color: rgba(223, 223, 223, 0.397);
+        animation: pulse 0.3s ease;
+    }
+}

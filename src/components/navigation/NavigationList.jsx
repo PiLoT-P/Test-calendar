@@ -1,9 +1,22 @@
+import s from './NavigationList.module.scss';
 import { useState } from 'react';
-import s from './NavigationList.module.scss'
-import DraggableItem from 'components/draggableItem/DraggableItem';
-import { useDrop } from 'react-dnd';
-
+import { DndContext, closestCenter} from '@dnd-kit/core';
+import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
+import SortableItem from 'components/sortableItem/SortableItem';
+// arrayMove,
 const menuList = [
+    { title: 'Новини номер 1', arrayNestedList: [] },
+    { title: 'Конференц-зал', arrayNestedList: [] },
+    { title: 'тест1', arrayNestedList: [] },
+    { title: 'тест2', arrayNestedList: [] },
+    { title: 'тест3', arrayNestedList: [] },
+    { title: 'Новини', arrayNestedList: [] },
+    { title: 'Конференц-зал', arrayNestedList: [] },
+    { title: 'тест133', arrayNestedList: [] },
+    { title: 'тест2', arrayNestedList: []},
+    { title: 'тест3', arrayNestedList: []},
+    { title: 'Новини', arrayNestedList: []},
+    { title: 'Конференц-зал', arrayNestedList: []},
     { title: 'Новини', arrayNestedList: []},
     { title: 'Конференц-зал', arrayNestedList: []},
     { title: 'тест1', arrayNestedList: []},
@@ -12,6 +25,12 @@ const menuList = [
     { title: 'Новини', arrayNestedList: []},
     { title: 'Конференц-зал', arrayNestedList: []},
     { title: 'тест1', arrayNestedList: []},
+    { title: 'тест2', arrayNestedList: []},
+    { title: 'тест3', arrayNestedList: []},
+    { title: 'Новини', arrayNestedList: []},
+    { title: 'Конференц-зал', arrayNestedList: [] },
+    { title: 'Конференц-зал', arrayNestedList: [] },
+    { title: 'тест133', arrayNestedList: [] },
     { title: 'тест2', arrayNestedList: []},
     { title: 'тест3', arrayNestedList: []},
     { title: 'Новини', arrayNestedList: []},
@@ -30,36 +49,44 @@ const menuList = [
     { title: 'Конференц-зал', arrayNestedList: []},
 ]
 
-const NavigationList = ({isOpen}) => {
-    const [visibleItem, setVisibleItem] = useState(10);
-
-    const [, drop] = useDrop({
-        accept: 'DRAGGABLE_ITEM',
-    });
-
-    drop.onDrop((item, monitor) => {
-        const targetIndex = menuList.findIndex((element) => element.id === item.id);
-
-        menuList.splice(targetIndex, 1);
-        menuList.splice(monitor.destination.index, 0, item);
-    });
+const NavigationList = ({ isOpen }) => {
+    const [visibleItem] = useState(101);
+    const [move, setMove] = useState(false);
+    const [menu] = useState(menuList);
 
     const position = isOpen ? 'relative' : 'fixed';
-    const left = isOpen ? '0px' : '-230px';
+    const left = isOpen ? '0px' : '-300px';
+    const overflow = move ? { overflowY: "visible", overflowX: "visible" } : { overflowY: "auto", overflowX: "hidden"};
+
+    const handleDragMove = (e) => {
+        setMove(true);
+    }
+
+    const handleDragEnd = (e) => {
+        console.log('end');
+        setMove(false)
+    }
+
     return (
         <>
-            <div className={s.navigation_container} style={{position: position, left: left}} >
-                <ul className={s.list}>
-                    {menuList.slice(0, visibleItem).map((element, index) => (
-                        <li key={index}> 
-                            <DraggableItem id={element.title} index={index} title={element.title}/>
-                        </li>
-                    ))}
-                </ul>
-                <button onClick={() => setVisibleItem(menuList.length)}>More</button>
-            </div>
+            <DndContext
+                collisionDetection={closestCenter}
+                onDragMove={handleDragMove}
+                onDragEnd={handleDragEnd}
+            >
+                <div className={s.navigation_container} style={{ position: position, left: left,  ...overflow }} >
+                    <SortableContext
+                        items={menu}
+                        strategy={verticalListSortingStrategy}
+                    >
+                        {menu.slice(0, visibleItem).map((element, index) => (
+                            <SortableItem key={index} id={element} />
+                        ))}
+                    </SortableContext>
+                </div>
+            </DndContext>
         </>
     )
 }
 
-export default NavigationList; 
+export default NavigationList;
