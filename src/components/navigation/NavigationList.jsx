@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { DndContext, closestCenter} from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import SortableItem from 'components/sortableItem/SortableItem';
-// arrayMove,
+
 const menuList = [
     { title: 'Новини номер 1', arrayNestedList: [] },
     { title: 'Конференц-зал', arrayNestedList: [] },
@@ -50,14 +50,13 @@ const menuList = [
 ]
 
 const NavigationList = ({ isOpen }) => {
-    const [visibleItem, setVisibleItem] = useState(10);
+    const [visibleItem, setVisibleItem] = useState(3);
     const [move, setMove] = useState(false);
     const [menu] = useState(menuList);
 
     const overflow = move ? { overflowY: "visible", overflowX: "visible" } : { overflowY: "auto", overflowX: "hidden" };
-    // const height = visibleItem >= menuList.length ? "100%" : "96.2%";
 
-    const style = isOpen ? { left: '0px', ...overflow,} : { position: 'fixed', left: '-300px', ...overflow }
+    const style = isOpen ? { left: '0px', ...overflow} : { position: 'fixed', left: '-300px', ...overflow}
 
     const handleDragMove = (e) => {
         setMove(true);

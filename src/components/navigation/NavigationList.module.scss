@@ -2,7 +2,6 @@
 
 .navigation_container {
     width: 60vw;
-
     left: 0;
     position: fixed;
     max-height: 92vh;
@@ -13,6 +12,7 @@
     @include tablet{
         position: relative;
         width: 22vw;
+        max-height: 100%;
 
         background-color: transparent;
     }
@@ -37,9 +37,7 @@
 
 .navigation_list{
     touch-action: none;
-    padding: 20px;
-
-    max-height: 100%;
+    padding: 20px;;
 }
 
 .btn_more{
