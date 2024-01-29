@@ -54,9 +54,10 @@ const NavigationList = ({ isOpen }) => {
     const [move, setMove] = useState(false);
     const [menu] = useState(menuList);
 
-    const position = isOpen ? 'relative' : 'fixed';
-    const left = isOpen ? '0px' : '-300px';
     const overflow = move ? { overflowY: "visible", overflowX: "visible" } : { overflowY: "auto", overflowX: "hidden"};
+
+    const style = isOpen ? { left: '0px', ...overflow } : { position: 'fixed', left: '-300px', ...overflow }
+
 
     const handleDragMove = (e) => {
         setMove(true);
@@ -74,7 +75,7 @@ const NavigationList = ({ isOpen }) => {
                 onDragMove={handleDragMove}
                 onDragEnd={handleDragEnd}
             >
-                <div className={s.navigation_container} style={{ position: position, left: left,  ...overflow }} >
+                <div className={s.navigation_container} style={style} >
                     <SortableContext
                         items={menu}
                         strategy={verticalListSortingStrategy}

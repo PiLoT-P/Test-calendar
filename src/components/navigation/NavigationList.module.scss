@@ -1,21 +1,27 @@
 @import '../../assets/styles/mixin';
 
 .navigation_container {
-    // width: 13vw !important;
+    touch-action: none;
     width: 60vw;
     padding: 15px;
 
-    position: absolute !important;
-    top: 0;
+    position: absolute;
     left: 0;
-
 
     transition: left 0.5s ease;
     background-color: rgba(190, 190, 190, 0.404);
-    max-height: 85%;
+    max-height: 92%;
 
     @include tablet{
-        background-color: red;
+        position: relative;
+        max-height: 80%;
+
+        width: 22vw;
+        background-color: transparent;
+    }
+
+    @include desktop{
+        width: 13vw;
     }
 
     &::-webkit-scrollbar {
