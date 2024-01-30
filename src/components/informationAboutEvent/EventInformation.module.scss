@@ -1,17 +1,27 @@
-.information_main_container{
+@import '../../assets/styles/mixin';
 
+.information_main_container{
+    width: 80vw;
+
+    @include tablet{
+        max-width: 500px;
+    }
 }
 .information_headers_container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
 
     margin-bottom: 25px;
 
-    gap: 30px;
+    gap: 10px;
+
+    @include tablet{
+        justify-content: center;
+        gap: 30px;
+    }
 
     .title{
-        min-width: 500px;
+        text-align: center;
         padding-bottom: 15px;
 
         font-weight: normal;

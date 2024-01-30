@@ -75,88 +75,105 @@ const ModalCreateMeeting = ({dateTimeStart, dateTimeEnd}) => {
         setObjMeeting(objM);
     }
 
-    // const handelClickOnEvent = (e) =>{
-    // }
-
     return (
         <>
-            <form
-                className={s.containerForm}
-                onSubmit={handleSubmit}
-            >
-                <Stack>
-                    <div className={s.dateConatiner}>
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <div className={s.dateBlock}>
-                                <DateTimePicker
-                                    value={objMeeting.dateStart}
-                                    views={['year', 'month', 'day']}
-                                    defaultValue={dayjs()}
-                                    minDate={dayjs()}
-                                    onChange={(e) => setObjMeeting({ ...objMeeting, dateStart: e.$d })}
-                                    sx={{ width: 200 }}
-                                />
-                                <Autocomplete
-                                    placeholder="Виберіть час початку"
-                                    options={arrayHour}
-                                    value={objMeeting.timeStart}
-                                    onChange={(e, v) => {
-                                        const newValue = v ? e.target.textContent : null
-                                        setObjMeeting({ ...objMeeting, timeStart: newValue})
-                                    } }
-                                    sx={{ width: 120 , height: 56}}
-                                />
+            {/* <section className={s.main_container}> */}
+                <form
+                    className={s.containerForm}
+                    onSubmit={handleSubmit}
+                >
+                    <Stack>
+                        <div className={s.date_сonatiner}>
+                            <h3>Дата</h3>
+                            <div className={s.main_date_block}>
+                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <div className={s.under_date_block}>
+                                        <label className={s.label_date}>Дата та час початку</label>
+                                        <div className={s.dateBlock}>
+                                            <DateTimePicker
+                                                value={objMeeting.dateStart}
+                                                views={['year', 'month', 'day']}
+                                                defaultValue={dayjs()}
+                                                minDate={dayjs()}
+                                                onChange={(e) => setObjMeeting({ ...objMeeting, dateStart: e.$d })}
+                                                className={s.date_picker}
+                                            />
+                                            <Autocomplete
+                                                placeholder="Виберіть час початку"
+                                                options={arrayHour}
+                                                value={objMeeting.timeStart}
+                                                onChange={(e, v) => {
+                                                    const newValue = v ? e.target.textContent : null
+                                                    setObjMeeting({ ...objMeeting, timeStart: newValue})
+                                                } }
+                                                className={s.select_time}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className={s.under_date_block}>
+                                        <label className={s.label_date}>Дата та час завершення</label>
+                                        <div className={s.dateBlock}>
+                                            <DateTimePicker
+                                                value={objMeeting.dateEnd}
+                                                onChange={(e) => setObjMeeting({ ...objMeeting, dateEnd: e.$d })}
+                                                views={['year', 'month', 'day']}
+                                                defaultValue={dayjs()}
+                                                minDate={dayjs()}
+                                                className={s.date_picker}
+                                            />
+                                            <Autocomplete
+                                                value={objMeeting.timeEnd}
+                                                placeholder="Виберіть час закінчення"
+                                                options={arrayHour}
+                                                onChange={(e, v) => {
+                                                    const newValue = v ? e.target.textContent : null
+                                                    setObjMeeting({ ...objMeeting, timeEnd: newValue})
+                                                } }
+                                                className={s.select_time}
+                                            />
+                                        </div>
+                                    </div>
+                                </LocalizationProvider>
                             </div>
-                            <div className={s.dateBlock}>
-                                <DateTimePicker
-                                    value={objMeeting.dateEnd}
-                                    onChange={(e) => setObjMeeting({ ...objMeeting, dateEnd: e.$d })}
-                                    views={['year', 'month', 'day']}
-                                    defaultValue={dayjs()}
-                                    minDate={dayjs()}
-                                    sx={{ width: 200 }}
-                                />
-                                <Autocomplete
-                                    value={objMeeting.timeEnd}
-                                    placeholder="Виберіть час закінчення"
-                                    options={arrayHour}
-                                    onChange={(e, v) => {
-                                        const newValue = v ? e.target.textContent : null
-                                        setObjMeeting({ ...objMeeting, timeEnd: newValue})
-                                    } }
-                                    sx={{ width: 120, height: 56 }}
-                                />
-                            </div>
-                        </LocalizationProvider>
-                    </div>
-                    <Autocomplete
-                        value={objMeeting.participants}
-                        multiple
-                        placeholder="Учасники"
-                        options={participants}
-                        getOptionLabel={(option) => option.title}
-                        onChange={(e, v) => {setObjMeeting({...objMeeting, participants: v})}}
-                        sx={{ width: 300 }}
+                        </div>
+                        <div className={s.members_container}>
+                            <h3 className={s.title}>Учасники</h3>
+                            <Autocomplete
+                                value={objMeeting.participants}
+                                multiple
+                                placeholder="Учасники"
+                                options={participants}
+                                getOptionLabel={(option) => option.title}
+                                onChange={(e, v) => {setObjMeeting({...objMeeting, participants: v})}}
+                                className={s.select_members}
 
-                    />
-                    <Button type="submit">Submit</Button>
-                    <Snackbar
-                        variant="solid"
-                        color="danger"
-                        autoHideDuration={3000}
-                        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                        open={open}
-                        onClose={(event, reason) => {
-                        if (reason === 'clickaway') {
-                            return;
-                        }
-                        setOpen(false);
-                        }}
-                    >
-                        {errorMessage  }
-                    </Snackbar>
-                </Stack>
-            </form>
+                            />
+                        </div>
+                        <div className={s.member_calendar_container}>
+                            Календар календар
+                        </div>
+                        <div className={s.btn_submit_container}>
+                            <Button type="submit" className={s.btn_submit}>Зберегти</Button>
+                            <Button onClick={() => console.log('exit')} className={s.btn_submit}>Скасувати</Button>
+                        </div>
+                        <Snackbar
+                            variant="solid"
+                            color="danger"
+                            autoHideDuration={3000}
+                            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                            open={open}
+                            onClose={(event, reason) => {
+                            if (reason === 'clickaway') {
+                                return;
+                            }
+                            setOpen(false);
+                            }}
+                        >
+                            {errorMessage  }
+                        </Snackbar>
+                    </Stack>
+                </form>
+            {/* </section> */}
         </>
     )
 }

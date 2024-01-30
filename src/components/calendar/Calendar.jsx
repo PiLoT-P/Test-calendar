@@ -37,12 +37,10 @@ const Calendar = ({setIsModalOpen, onChangesStartMeeting,  onChangesEndMeeting, 
         onChangesEventInformation({title: titleEvent, time, color: `${dataClick._def.ui.backgroundColor}`})
         onChangesIsOpenEventInformation(true) 
     };
-    
-
 
     return (
         <div className={s.container}>
-            <h2>Календар</h2>
+            <h2 className={s.title}>Календар</h2>
             <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView='dayGridMonth'
@@ -56,11 +54,11 @@ const Calendar = ({setIsModalOpen, onChangesStartMeeting,  onChangesEndMeeting, 
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 }}
+                className={s.custom_calendar}
                 initialDate={ new Date()}
                 select={handleSelectClick}
                 eventClick={handleEventClick}
                 eventDidMount={handleEventMount}
-                // style={{zIndex: 1}}
             />
         </div>
     );

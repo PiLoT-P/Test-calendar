@@ -1,4 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
+@import "./assets/styles/mixin";
 
 body {
   margin: 0;
@@ -9,17 +10,58 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root{
+  .fc-header-toolbar{
+    flex-direction: column;
+    gap: 10px;
+
+    @include tablet{
+      flex-direction: row;
+    }
+
+  }
+
+  .fc-toolbar-title{
+    font-size: medium;
+
+    @include tablet{
+      font-size: large;
+    }
+  }
+
+  .fc-button{
+    padding: 0;
+    height: 30px;
+    width: 30px;
+  }
+  .fc-today-button{
+    width: 100px;
+  }
+
+  .fc-dayGridMonth-button{
+    width: 80px;
+  }
+
+  .fc-timeGridWeek-button {
+    width: 80px;
+  }
+
+  .fc-timeGridDay-button{
+    width: 80px;
+  }
+}
+
 header {
-  background-color: red;
+  background-color: rgba(154, 94, 94, 0.74);
 }
 
 main {
-  background-color: green;
+  background-color: rgba(68, 126, 68, 0.63);
   overflow: hidden;
 }
 
 footer {
-  background-color: teal;
+  background-color: rgba(68, 130, 130, 0.662);
 }
 
 code {

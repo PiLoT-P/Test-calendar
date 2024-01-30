@@ -1,24 +1,167 @@
+@import '../../assets/styles/mixin';
+
 .containerForm{
-    height: 80vh;
     width: 80vw;
+    height: 80vh;
+    padding: 10px;
 
-    background-color: white
+    border-radius: 10px;
+    background-color: white ;
 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;    
+    @include tablet{
+        padding: 20px;
+    }
+
+    @include big-tablet{
+
+    }
 }
 
-// .dateConatiner{
-//     display: flex;
-//     justify-content: start;
-//     align-items: center;
-//     gap: 40px;
-// }
+.date_сonatiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
 
-// .dateBlock{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 5px;
-// }
+    margin-bottom: 20px;
+
+    @include tablet{
+        flex-direction: row;
+        align-items: center;
+        gap: 0px;
+
+        padding: 12px;
+        border-radius: 10px;
+
+        background-color: rgba(235, 235, 235, 0.774);
+    }
+
+    @include big-tablet {
+        justify-content: space-between;
+
+        gap: 12px;
+    }
+
+    @include desktop {
+        justify-content: start;
+        gap: 100px;
+    }
+
+    .main_date_block{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @include big-tablet{
+            flex-direction: row;
+
+            gap: 25px;
+        }
+
+        .under_date_block{
+
+
+
+            .label_date{
+                color: rgb(177, 177, 177);
+                // text-align: center;
+                display: block;
+        
+                margin-bottom: 12px;
+            }
+    
+            .dateBlock{
+                display: flex;
+                gap: 5px;
+            
+                @include tablet{
+                    justify-content: center;
+            
+                    gap: 15px;
+                }
+                
+                .date_picker{
+                    width: 100%;
+                
+                    font-size: small;
+            
+                    @include tablet{
+                        width: 300px;
+                    }
+            
+                    @include big-tablet{
+                        width: 200px;
+                    }
+                }
+            
+                .select_time{
+                    width: 120px;
+
+                    background-color: transparent;
+
+                    @include big-tablet{
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.members_container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    @include tablet {
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 0px;
+
+        padding: 12px;
+        border-radius: 10px;
+
+        background-color: rgba(235, 235, 235, 0.774);
+    }
+
+    @include desktop{
+        justify-content: start;
+        gap: 100px;
+    }
+
+    .title{ 
+        display: flex;
+        align-items: center;
+
+    }
+    .select_members{
+        @include tablet{
+            width: 300px;
+        }
+    }
+}
+
+.member_calendar_container{
+    padding: 25px;
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+    background-color: rgba(235, 235, 235, 0.774);
+}
+
+.btn_submit_container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @include tablet{
+        justify-content: start;
+    }
+    .btn_submit{
+        display: block;
+        width: 100px;
+    }
+}

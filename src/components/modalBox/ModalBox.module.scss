@@ -1,3 +1,5 @@
+@import "../../assets/styles/mixin";
+
 .modal_container{
     padding: 20px !important;
 
@@ -8,7 +10,12 @@
     .buttonExit{
         position: absolute !important;
     
-        top: 7px;
-        right: 7px;
+        top: 2px;
+        right: 2px;
+
+        @include tablet{
+            top: 7px;
+            right: 7px;
+        }
     }
 }

@@ -1,12 +1,15 @@
 import Calendar from "components/calendar/Calendar";
+import MenuIcon from '@mui/icons-material/Menu';
 import EventInformation from "components/informationAboutEvent/EventInformation";
 import ModalBox from "components/modalBox/ModalBox";
 import ModalCreateMeeting from "components/modalCreateMeeting/ModalCreateMeeting";
 import ReviewEvent from "components/reviewEvent/ReviewEvent";
 import { Button } from "@mui/joy";
 import { useState } from "react";
+import NavigationList from "components/navigation/NavigationList";
 
 const ConferenceRoom = ( ) => {
+    const [openMenu, setOpenMenu] = useState(false);
     const [open, setOpen] = useState(false);
     const [openEventInformation, setOpenEventInformation] = useState(false);
     const [openReview, setOpenReview] = useState(false);
@@ -16,14 +19,34 @@ const ConferenceRoom = ( ) => {
     
     return (
         <>
-            <Button onClick={() => setOpen(true)}>Створеня зустрічі</Button>
-            <Calendar 
-                setIsModalOpen={setOpen}
-                onChangesStartMeeting={setStartMeeting}
-                onChangesEndMeeting={setEndMeeting}
-                onChangesIsOpenEventInformation={setOpenEventInformation}
-                onChangesEventInformation={setEventInformation}
-            />
+            <header>
+                <div>header</div>
+                <div onClick={() => setOpenMenu(!openMenu)}>
+                    <MenuIcon fontSize="large" style={{cursor: 'pointer'}}/>
+                </div>
+            </header>
+            <main style={{ height: "92vh", display: "flex", gap: "10px"}}>
+                <NavigationList
+                    isOpen={openMenu}
+                />
+                <section style={{width: "100%", padding: "25px", overflow: "auto"}}>
+                    <div>
+                        <Button onClick={() => setOpen(true)}>Створеня зустрічі</Button>
+                        <Calendar 
+                            setIsModalOpen={setOpen}
+                            onChangesStartMeeting={setStartMeeting}
+                            onChangesEndMeeting={setEndMeeting}
+                            onChangesIsOpenEventInformation={setOpenEventInformation}
+                            onChangesEventInformation={setEventInformation}
+                        /> 
+                    </div>
+                </section>
+            </main>
+            {/* <footer>
+                <p>footer</p>
+            </footer> */}
+
+
             <ModalBox
                 isModalOpen={open}
                 setIsModalOpen={setOpen}

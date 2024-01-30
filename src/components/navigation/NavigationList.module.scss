@@ -5,9 +5,10 @@
     left: 0;
     position: fixed;
     max-height: 92vh;
+    z-index: 2;
 
     transition: left 0.5s ease;
-    background-color: rgba(190, 190, 190, 0.404);
+    background-color: rgba(21, 21, 21, 0.803);
 
     @include tablet{
         position: relative;
@@ -30,7 +31,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(80, 104, 153, 0.649);
         border-radius: 6px;
     }
 }
@@ -48,4 +49,6 @@
     padding: 10px;
     background-color: transparent;
     border: none;
+
+    background-color: rgb(171, 76, 76);
 }

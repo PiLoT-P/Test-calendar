@@ -1,14 +1,30 @@
+@import '../../assets/styles/mixin';
+
 .review_container{
-    height: 80vh;
-    width: 70vw;
+    max-width: 350px;
+    max-height: 80vh;
 
     display: flex;
+    flex-direction: column;
     gap: 15px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    @include tablet{
+        min-width: 500px;
+    }
+
+    @include desktop{
+        min-width: 80vw;
+        flex-direction: row;
+
+        overflow: hidden;
+    }
 }
 
 .review_block{
     width: 100%;
-    // display: flex;
 }
 
 .main_block{
