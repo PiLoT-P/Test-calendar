@@ -25,7 +25,7 @@ const ConferenceRoom = ( ) => {
                     <MenuIcon fontSize="large" style={{cursor: 'pointer'}}/>
                 </div>
             </header>
-            <main style={{ height: "92vh", display: "flex", gap: "10px"}}>
+            <main style={{ height: "92.3vh", display: "flex", gap: "10px"}}>
                 <NavigationList
                     isOpen={openMenu}
                 />
