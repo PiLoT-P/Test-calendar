@@ -1,0 +1,13 @@
+@import '../../assets/styles/mixin';
+
+.calendar_container{
+    @include big-tablet{
+        display: flex;
+        gap: 20px
+    }
+
+    .btn_create_meeting{
+        height: 40px;
+        width: 200px
+    }
+}

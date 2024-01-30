@@ -78,6 +78,16 @@ body {
   .fc-timeGridDay-button{
     width: 80px;
   }
+  .fc-scrollgrid-sync-table{
+    .fc-day{
+      .fc-daygrid-day-frame{
+        @include tablet{
+          height: 80px;
+          overflow-y: auto;
+        }
+      }
+    }
+  }
 
   // .fc-listMonth-button{
   //   max-height: 25.6px;

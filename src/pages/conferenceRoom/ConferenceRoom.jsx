@@ -7,6 +7,7 @@ import ReviewEvent from "components/reviewEvent/ReviewEvent";
 import { Button } from "@mui/joy";
 import { useState } from "react";
 import NavigationList from "components/navigation/NavigationList";
+import s from "./ConferenceRoom.module.scss";
 
 const ConferenceRoom = ( ) => {
     const [openMenu, setOpenMenu] = useState(false);
@@ -30,8 +31,8 @@ const ConferenceRoom = ( ) => {
                     isOpen={openMenu}
                 />
                 <section style={{width: "100%", padding: "25px", overflow: "auto"}}>
-                    <div>
-                        <Button onClick={() => setOpen(true)}>Створеня зустрічі</Button>
+                    <div className={s.calendar_container}>
+                        <Button onClick={() => setOpen(true)} className={s.btn_create_meeting}>Створеня зустрічі</Button>
                         <Calendar 
                             setIsModalOpen={setOpen}
                             onChangesStartMeeting={setStartMeeting}
