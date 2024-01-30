@@ -46,6 +46,7 @@ body {
   }
 
   .fc-button{
+    height: 100%;
     padding: 6px;
   }
 
@@ -103,6 +104,11 @@ body {
   }
   .fc-scrollgrid{
     
+  }
+  .fc-listMonth-button{
+    max-height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
