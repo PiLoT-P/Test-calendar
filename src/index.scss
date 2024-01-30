@@ -29,25 +29,70 @@ body {
     }
   }
 
-  .fc-button{
-    padding: 0;
-    height: 30px;
-    width: 30px;
+  .fc-toolbar-chunk{
+
+    @include tablet{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px
+
+    }
+
+    @include big-tablet{
+      flex-direction: row;
+      gap: 20px;
+    }
   }
+
+  .fc-button{
+    padding: 6px;
+  }
+
   .fc-today-button{
     width: 100px;
+
+    @include tablet{
+      margin: 0;
+    }
   }
 
   .fc-dayGridMonth-button{
+    display: none;
     width: 80px;
+
+    @include tablet{
+      display: block;
+    }
   }
 
   .fc-timeGridWeek-button {
+    display: none;
     width: 80px;
+
+    @include tablet{
+      display: block;
+    }
   }
 
   .fc-timeGridDay-button{
     width: 80px;
+  }
+
+  // .fc-listMonth-button{
+  //   max-height: 25.6px;
+  //   white-space: nowrap;      
+  //   overflow: hidden;          
+  //   text-overflow: ellipsis;   
+  //   max-width: 100%;
+  // }
+
+
+  .fc-view-harness{
+    // height: 55vh !important;
+  }
+  .fc-scrollgrid{
+    
   }
 }
 

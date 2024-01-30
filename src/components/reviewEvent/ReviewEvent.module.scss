@@ -1,7 +1,7 @@
 @import '../../assets/styles/mixin';
 
 .review_container{
-    max-width: 350px;
+    width: 85vw;
     max-height: 80vh;
 
     display: flex;
@@ -84,10 +84,13 @@
 }
 
 .time_block{
-    min-width: 300px;
     height: max-content;
 
     background-color: white;
+
+    @include desktop {
+        min-width: 300px;
+    }
 
     .date{
         text-align: center;

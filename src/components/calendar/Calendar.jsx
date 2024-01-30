@@ -2,6 +2,7 @@ import React from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import ukLocale from '@fullcalendar/core/locales/uk';
 import s from './Calendar.module.scss';
@@ -15,7 +16,6 @@ const events = [
 ];
 
 const Calendar = ({setIsModalOpen, onChangesStartMeeting,  onChangesEndMeeting, onChangesIsOpenEventInformation, onChangesEventInformation}) => {
-
     const handleEventMount = (info) =>{
         const eventElement = info.el;
         eventElement.style.cursor = "pointer";
@@ -42,17 +42,21 @@ const Calendar = ({setIsModalOpen, onChangesStartMeeting,  onChangesEndMeeting, 
         <div className={s.container}>
             <h2 className={s.title}>Календар</h2>
             <FullCalendar
-                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                initialView='dayGridMonth'
+                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+                initialView='timeGridDay'
                 editable={true}
                 navLinks={true}
                 selectable={true}
+                longPressDelay={1}
                 events={events}
                 locale={ukLocale}
                 headerToolbar={{
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+                }}
+                buttonText={{
+                    list: "Список за місяць"
                 }}
                 className={s.custom_calendar}
                 initialDate={ new Date()}
