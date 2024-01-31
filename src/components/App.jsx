@@ -1,12 +1,15 @@
-import ConferenceRoom from "pages/conferenceRoom/ConferenceRoom";
+// import ConferenceRoom from "pages/conferenceRoom/ConferenceRoom";
 // import HomePage from "pages/home/HomePage";
+
+import Questionary from "pages/questionary/Questionary";
 
 export const App = () => {
 
   return (
     <>
-      <ConferenceRoom/>
-        {/* <HomePage/> */}
+      <Questionary/>
+      {/* <ConferenceRoom/> */}
+      {/* <HomePage/> */}
     </>
   );
 };
