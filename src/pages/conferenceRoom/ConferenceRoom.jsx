@@ -20,18 +20,18 @@ const ConferenceRoom = ( ) => {
     
     return (
         <>
-            <header>
+            <header style={{backgroundColor: "rgba(165, 165, 165, 0.799)"}}>
                 <div>header</div>
                 <div onClick={() => setOpenMenu(!openMenu)}>
                     <MenuIcon fontSize="large" style={{cursor: 'pointer'}}/>
                 </div>
             </header>
-            <main style={{ height: "92.3vh", display: "flex", gap: "10px"}}>
+            <main style={{ height: "92.3vh", display: "flex", gap: "10px",}}>
                 <NavigationList
                     isOpen={openMenu}
                 />
-                <section style={{width: "100%", padding: "25px", overflow: "auto"}}>
-                    <div className={s.calendar_container}>
+                <section style={{width: "100%", padding: "25px", overflow: "auto",}}>
+                    <div className={s.calendar_container} style={{backgroundColor: "rgba(165, 165, 165, 0.799)"}}>
                         <Button onClick={() => setOpen(true)} className={s.btn_create_meeting}>Створеня зустрічі</Button>
                         <Calendar 
                             setIsModalOpen={setOpen}

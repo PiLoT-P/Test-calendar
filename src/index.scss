@@ -8,12 +8,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // background-image: url(./assets/painting-mountain-lake-with-mountain-background_188544-9126.avif);
 }
 
 #root{
   .fc-header-toolbar{
     flex-direction: column;
     gap: 10px;
+    // color: rgba(165, 165, 165, 0.799);
 
     @include tablet{
       flex-direction: row;
@@ -113,16 +115,16 @@ body {
 }
 
 header {
-  background-color: rgba(154, 94, 94, 0.74);
+  // background-color: rgba(154, 94, 94, 0.74);
 }
 
 main {
-  background-color: rgba(68, 126, 68, 0.63);
+  // background-color: rgba(68, 126, 68, 0.63);
   overflow: hidden;
 }
 
 footer {
-  background-color: rgba(68, 130, 130, 0.662);
+  // background-color: rgba(68, 130, 130, 0.662);
 }
 
 code {
