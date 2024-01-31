@@ -81,6 +81,23 @@ const QuestionaryForm = memo(() =>{
                                     );
                                 })}
                             </div>
+                            <div>
+                                <p>Адреса реєстрації</p>
+                                {Object.entries(formik.values.registrationAdress).map(([key, value]) => {
+                                    return(
+                                        <MemoTextField
+                                            key={key}
+                                            required
+                                            id={key}
+                                            name={`registrationAdress.${key}`}
+                                            label={key}
+                                            variant="standard"
+                                            value={value}
+                                            onChange={formik.handleChange}
+                                        />
+                                    );
+                                })}
+                            </div>
                         </form>
                     </>
                 )}
