@@ -1,4 +1,4 @@
-export const itemObj = {
+export const itemObjForQuestionary = {
     aboutMyself: {
         position: '',
         surname: '',
@@ -30,9 +30,9 @@ export const itemObj = {
         contactsNetworks: '',
         findOutSelect: null,
         dateStartWork: '',
-        disabilityGroupSelect: null,
-        criminalOrAdministrativeResponseSelect: null,
-        relativesInCompanySelect: null,
+        disabilityGroupSelectTF: null,
+        criminalOrAdministrativeResponseSelectTF: null,
+        relativesInCompanySelectTF: null,
         aducation: '',
     },
     companyOne: {
@@ -47,5 +47,43 @@ export const itemObj = {
         duties: '',
         reasonForDismissal: '',
     },
+    fullNameFutureLeader: '',
     consentPersonalData: true,
+}
+
+export const itemObjForQuestionaryTranslateUkr = {
+
+        position: 'Посада, на яку претендуєте',
+        surname: 'Прізвище',
+        anotherSurname: 'Інші прізвища, якими користувались (в т.ч. дівоче)',
+        name: "Ім`я",
+        middleName: 'По-батькові',
+        dateBirthday: 'Дата народження(ДД, ММ, РРРР)',
+        idNumber: 'Ідентифікаційний номер',
+
+        region: 'Область',
+        district: 'Район',
+        city: 'Місто',
+        street: 'Вулиця',
+        house: 'Будинок',
+        apartment: 'Квартира',
+
+        phone: 'Мобільний телефон',
+        email: 'E-mail',
+        contactsNetworks: 'Контакти в соцмережах (fb,linkedin)',
+        findOutSelect: 'Звідки дізнались про вакансію?',
+        dateStartWork: 'Дата можливого початку роботи',
+        disabilityGroupSelectTF: 'Чи маєте групу інвалідності',
+        criminalOrAdministrativeResponseSelectTF: "Чи притягувались Ви або члени Вашої родини до кримінальної або адміністративної відповідальності?",
+        relativesInCompanySelectTF: 'Чи є у Вас родичі, які працюють у нашій компанії?',
+        aducation: 'Освіта',
+
+        nameCompany: 'Найменування',
+        periodOfWork: 'Період роботи',
+        duties: "Обов'язки",
+        reasonForDismissal: 'Причина звільнення',
+}
+
+export const errorMessagesUkr = {
+    required: "Це поле обов'язкове",
 }
